@@ -1,0 +1,121 @@
+{
+  "live-deep": {
+    "app": "kilncast",
+    "start": "channel?id=0",
+    "view": "channel-0",
+    "hard": true
+  },
+  "live-switch": {
+    "app": "kilncast",
+    "start": "channel?id=0",
+    "click": "#channel-1",
+    "view": "channel-1",
+    "persist": "#player-shell"
+  },
+  "live-back": {
+    "app": "kilncast",
+    "start": "channel?id=0",
+    "prepare": "#channel-1",
+    "prepared": "channel-1",
+    "click": "#live-back",
+    "view": "channel-0",
+    "persist": "#player-shell"
+  },
+  "news-home-article": {
+    "app": "ledger",
+    "start": "home",
+    "click": "#news-article",
+    "view": "article-0",
+    "hard": true
+  },
+  "news-article-section": {
+    "app": "ledger",
+    "start": "article?id=0",
+    "click": "#news-section",
+    "view": "section",
+    "hard": true
+  },
+  "news-back": {
+    "app": "ledger",
+    "start": "article?id=0",
+    "prepare": "#news-section",
+    "prepared": "section",
+    "click": "#news-back",
+    "view": "article-0",
+    "back": true
+  },
+  "travel-search-results": {
+    "app": "elsewhere",
+    "start": "search",
+    "click": "#travel-results",
+    "view": "results"
+  },
+  "travel-filter": {
+    "app": "elsewhere",
+    "start": "results",
+    "click": "#breakfast-filter",
+    "view": "filtered"
+  },
+  "travel-item": {
+    "app": "elsewhere",
+    "start": "results",
+    "click": "#stay-0",
+    "view": "stay",
+    "hard": true
+  },
+  "travel-book": {
+    "app": "elsewhere",
+    "start": "stay?id=0",
+    "click": "#travel-book",
+    "view": "booking",
+    "hard": true
+  },
+  "forum-thread": {
+    "app": "commonplot",
+    "start": "feed",
+    "click": "#thread-0",
+    "view": "thread-0"
+  },
+  "forum-back": {
+    "app": "commonplot",
+    "start": "feed",
+    "prepare": "#thread-0",
+    "prepared": "thread-0",
+    "click": "#forum-back",
+    "view": "feed"
+  },
+  "social-post": {
+    "app": "morrow",
+    "start": "feed",
+    "click": "#social-post",
+    "view": "post-0"
+  },
+  "social-profile": {
+    "app": "morrow",
+    "start": "feed",
+    "click": "#social-profile",
+    "view": "profile-0"
+  },
+  "social-back": {
+    "app": "morrow",
+    "start": "feed",
+    "prepare": "#social-post",
+    "prepared": "post-0",
+    "click": "#social-back",
+    "view": "feed"
+  },
+  "mail-folder": {
+    "app": "letterdesk",
+    "start": "mail",
+    "click": "#folder-archive",
+    "view": "folder-archive",
+    "state": true
+  },
+  "mail-message": {
+    "app": "letterdesk",
+    "start": "mail",
+    "click": "#message-0",
+    "view": "message-0",
+    "state": true
+  }
+}

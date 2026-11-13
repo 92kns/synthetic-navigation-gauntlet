@@ -1,0 +1,27 @@
+import {data,image,avatar,icon,ready,failure,start,origin} from '/apps/runtime.js';
+import {schemas} from './registry.js';
+start();
+const params=new URLSearchParams(location.search),section=params.get('section')||'City & community';
+const article=location.pathname.endsWith('/article');
+const sectionPage=location.pathname.endsWith('/section');
+document.querySelector('#shell').innerHTML=`<div class="edition-strip"><span>WEDNESDAY, 4 NOVEMBER · THE MORNING EDITION</span><span>Independent minds. Shared horizons.</span><span>Port Alder 12° ${icon('sun')}</span></div><header class="ledger-masthead"><a class="brand" href="/apps/ledger/home"><small>THE</small> Daybreak Ledger<span>Good stories. A wider view.</span></a><div><button class="button" id="subscribe">The weekly letter ${icon('arrow')}</button><p class="muted">A thoughtful start to your weekend</p></div></header><nav class="ledger-nav"><a href="/apps/ledger/home">Latest</a>${['City & community','Climate','Culture','Journeys'].map(s=>`<a ${s===section?'class="current"':''} href="/apps/ledger/section?section=${encodeURIComponent(s)}">${s}</a>`).join('')}<span class="nav-spacer"></span><button id="news-back" data-back>${icon('back')} Previous page</button></nav><main id="main"><div id="news-content"></div><div class="newsletter"><div><span class="eyebrow">The weekly letter</span><h2>A little perspective, delivered.</h2><p>Our favourite stories, a few good ideas, and something to think about.</p></div><form id="newsletter-form"><label for="newsletter-email">Your email address</label><div class="row"><input id="newsletter-email" type="email" placeholder="you@example.test" required><button class="button primary">Count me in ${icon('arrow')}</button></div><p id="newsletter-status" class="muted">One letter, every Saturday. No clutter.</p></form></div></main><footer class="row between"><b>The Daybreak Ledger</b><span>Independent journalism for a world in progress.</span><span>© 2026 Daybreak Studio</span></footer><aside id="consent" class="consent-bar"><p><b>A small note on privacy.</b> Essential storage keeps this edition working. Optional storage is off.</p><button id="consent-close" class="button">Keep essentials only ${icon('check')}</button></aside>`;
+const script=document.createElement('script');script.src=origin('ledger-consent')+'/apps/ledger/consent.js';document.head.append(script);
+const card=(s,i,lead=false)=>`<article class="story-card ${lead?'lead':''} ledger-tone-${i%300}"><a ${i===0?'id="news-article"':''} href="/apps/ledger/article?id=${s.id}"><div class="story-image"><img src="${image(s.image,0)}" srcset="${image(s.image,0,2)} 2x" width="${lead?1200:480}" height="${lead?750:300}" loading="${i<7?'eager':'lazy'}" alt="${s.title}"></div><div class="story-copy"><span class="eyebrow">${s.section}</span><h2>${s.title}</h2><p>${s.standfirst}</p><span class="byline">${s.author} <i>·</i> ${s.minutes} min read</span></div></a></article>`;
+try{
+ const stories=await data('stories');
+ const content=document.querySelector('#news-content');
+ if(article){
+  const [{articleView},story]=await Promise.all([import('./article.js'),data('item-'+(params.get('id')||'0'))]);
+  content.innerHTML=articleView(story,stories);
+  document.querySelector('#save-story').onclick=e=>{const saved=e.currentTarget.getAttribute('aria-pressed')!=='true';e.currentTarget.setAttribute('aria-pressed',String(saved));e.currentTarget.textContent=saved?'Saved to your reading list':'Save for later';};
+  await ready('article-'+story.id);
+ }else{
+  const shown=sectionPage?stories.filter(s=>s.section===section):stories;
+  content.innerHTML=`<div class="edition-heading"><div><span class="eyebrow">${sectionPage?'A closer look':'The world, a little closer'}</span><h1>${sectionPage?section:'Room for a better tomorrow.'}</h1></div><span class="muted">${sectionPage?'People, ideas, and the places we share.':'Fresh perspectives from the places we call home.'}</span></div><div class="front-grid"><div>${card(shown[0],0,true)}</div><div class="front-secondary">${shown.slice(1,3).map((s,i)=>card(s,i+1)).join('')}</div><aside class="briefing"><span class="eyebrow">The short list</span><h2>While you were<br>making coffee.</h2>${shown.slice(3,8).map((s,i)=>`<a href="/apps/ledger/article?id=${s.id}"><span>0${i+1}</span><div><h3>${s.title}</h3><small>${s.section} · ${s.minutes} min</small></div></a>`).join('')}<div class="briefing-note">A little context<br>goes a long way.</div></aside></div><div class="section-title"><h2>More to explore</h2><span class="muted">Stories worth your time</span></div><div class="news-cards">${shown.slice(3).map((s,i)=>card(s,i+3)).join('')}</div><iframe class="partner-banner" title="Daybreak partner message" src="${origin('ledger-ads')}/apps/ledger/ad" loading="eager"></iframe>`;
+  gauntletApp.registry=schemas.length;await ready(sectionPage?'section':'home');
+ }
+ document.querySelector('#consent-close').onclick=()=>{sessionStorage.setItem('ledger-consent','essential');document.querySelector('#consent').hidden=true;};
+ if(sessionStorage.getItem('ledger-consent'))document.querySelector('#consent').hidden=true;
+ document.querySelector('#subscribe').onclick=()=>document.querySelector('#newsletter-email').focus();
+ document.querySelector('#newsletter-form').onsubmit=e=>{e.preventDefault();document.querySelector('#newsletter-status').textContent='You are on the list. See you Saturday.';};
+}catch(error){failure(error);}

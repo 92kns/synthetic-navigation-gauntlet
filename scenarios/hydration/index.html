@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="/metrics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gauntlet: hydration</title>
+<link rel="stylesheet" href="/common.css">
+<link rel="stylesheet" href="/hydration/hydration.css">
+<link rel="stylesheet" href="/gen/css?kb=__CSS_KB__&match=__CSS_RULES__&seed=hydration&delay_ms=__CSS_DELAY__">
+<script defer src="/gen/js?kb=__JS_KB__&work=__CPU_WORK__&seed=hydration&delay_ms=__JS_DELAY__"></script>
+<script defer src="/hydration/hydrate.js"></script>
+</head>
+<body>
+<header>Outdoor Supply Co.</header>
+<main>
+<section class="intro">
+  <h1>Gear for the weekend</h1>
+  <p>Server-rendered markup is visible straight away; prices, stock levels and
+  the deals table appear once the application bundle has hydrated.</p>
+</section>
+<div class="cards">
+__HYDRATION_CARDS__
+</div>
+<section>
+  <h2>Live deals</h2>
+  <div id="deals" class="deals placeholder">Loading deals...</div>
+</section>
+<section>
+  <h2>Stock levels</h2>
+  <!--gen:table rows=__ROWS__ cols=__COLS__ seed=hydration-stock-->
+</section>
+</main>
+</body>
+</html>

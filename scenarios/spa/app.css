@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font: 15px/1.4 Helvetica, Arial, sans-serif;
+  background: #fafafa;
+  color: #1c1d21;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: #3b2a74;
+  color: #fff;
+  padding: 14px 24px;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+nav a {
+  color: #fff;
+  margin-right: 18px;
+  text-decoration: none;
+}
+main {
+  padding: 16px 24px;
+}
+.skeleton {
+  height: 240px;
+  border-radius: 8px;
+  background: #ececf2;
+}
+.hero {
+  padding: 28px;
+  border-radius: 8px;
+  background: #e9e3fb;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  margin: 0 0 6px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  background: #e2e2ea;
+}
+.card .meta {
+  padding: 8px 10px;
+}
+.card .price {
+  font-weight: bold;
+  color: #3b2a74;
+}
+.products {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+}
+.facets label {
+  display: block;
+  padding: 2px 6px;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+header { position: sticky; top: 0; z-index: 2; }

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="/metrics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gauntlet: spa</title>
+<link rel="stylesheet" href="/common.css">
+<link rel="stylesheet" href="/spa/app.css">
+<link rel="stylesheet" href="/gen/css?kb=__CSS_KB__&match=__CSS_RULES__&seed=spa&delay_ms=__CSS_DELAY__">
+<script defer src="/gen/js?kb=__JS_KB__&work=__CPU_WORK__&seed=spa-vendor&delay_ms=__JS_DELAY__"></script>
+<script defer src="/spa/app.js"></script>
+</head>
+<body>
+<header>
+  <span class="logo">Shopfront</span>
+  <nav>
+    <button id="history-back" onclick="history.back()">Back</button>
+    <a id="nav-home" href="/spa/index.html">Home</a>
+    <a id="nav-products" href="/spa/products">Products</a>
+  </nav>
+</header>
+<main id="view"><div class="skeleton"></div></main>
+</body>
+</html>

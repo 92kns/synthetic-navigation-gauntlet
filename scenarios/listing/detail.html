@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gauntlet: listing detail</title>
+<link rel="stylesheet" href="/common.css">
+<link rel="stylesheet" href="/listing/listing.css?delay_ms=20">
+<link rel="stylesheet" href="/gen/css?kb=150&match=32&seed=listing&delay_ms=20">
+<script src="/gen/js?kb=300&work=250000&seed=listing&delay_ms=20"></script>
+</head>
+<body>
+<header><a href="/listing/index.html">Homeware</a></header>
+<main class="detail">
+  <img class="hero" src="/gen/img?w=1200&h=1200&seed=listing-detail-3&delay_ms=30" width="1200" height="1200" alt="">
+  <section>
+    <h1>Rattan chair</h1>
+    <div class="price">$225</div>
+    <button>Add to basket</button>
+    <!--gen:text paras=3 seed=listing-detail-->
+    <h2>Specifications</h2>
+    <!--gen:table rows=30 cols=4 seed=listing-spec-->
+    <h2>You may also like</h2>
+    <div class="related">
+<!--gen:cards n=8 w=300 h=300 delay=20 seed=listing href=/listing/detail.html?id=ID-->
+    </div>
+  </section>
+</main>
+</body>
+</html>

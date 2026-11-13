@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font: 15px/1.4 Helvetica, Arial, sans-serif;
+  background: #f6f7f4;
+  color: #1c1d21;
+}
+header {
+  background: #2f5d34;
+  color: #fff;
+  padding: 14px 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+main {
+  padding: 12px 24px;
+}
+.intro h1 {
+  margin: 4px 0;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+}
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  background: #dfe5dc;
+}
+.card .price {
+  font-weight: bold;
+  color: #2f5d34;
+  min-height: 1.4em;
+}
+.card button {
+  width: 100%;
+  padding: 6px;
+  border: 0;
+  border-radius: 4px;
+  background: #c8cec6;
+  color: #fff;
+}
+.hydrated .card button {
+  background: #2f5d34;
+}
+.deals {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 2px;
+  font-size: 11px;
+}
+.deals.placeholder {
+  display: block;
+  padding: 16px;
+  background: #e9ece6;
+  color: #6b6b6b;
+}
+.deal {
+  padding: 3px;
+  background: #e2ecd9;
+  text-align: center;
+}
+.deal.hot {
+  background: #f4c9a8;
+}

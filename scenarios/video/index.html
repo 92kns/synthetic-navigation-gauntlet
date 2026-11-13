@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldframe — a little further outside</title>
+  <script src="/metrics.js"></script>
+  <link rel="stylesheet" href="/video/site.css">
+  <link rel="stylesheet" href="/video/components.css">
+  <script type="module" src="/video/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="masthead">
+    <button class="icon-button" id="menu" aria-label="Toggle sidebar" aria-expanded="true">☰</button>
+    <a class="brand" href="/video/search?q=outdoors"><span class="brand-mark">▷</span>fieldframe<span class="brand-dot">●</span></a>
+    <form id="search-form" role="search" action="/video/search">
+      <input id="query" name="q" type="search" aria-label="Search films" placeholder="Find your next rabbit hole" value="outdoors">
+      <button type="submit" aria-label="Search">⌕</button>
+    </form>
+    <span class="masthead-note">A little further outside.</span>
+    <button class="profile" aria-label="Your profile">AL</button>
+  </header>
+  <nav class="sidebar" aria-label="Main navigation">
+    <a href="/video/search?q=outdoors"><span>⌂</span>Discover</a>
+    <a href="/video/search?q=field%20notes"><span>▤</span>Field notes</a>
+    <a href="/video/search?q=makers"><span>◇</span>Following</a>
+    <hr><p>YOUR COLLECTION</p>
+    <button id="history-back"><span>↶</span>Previous watch</button>
+    <a href="/video/search?q=weekend"><span>◷</span>For the weekend</a>
+    <a href="/video/search?q=landscape"><span>♡</span>Saved films</a>
+    <hr><p>WANDER THROUGH</p>
+    <a href="/video/search?q=landscape">Land &amp; light</a>
+    <a href="/video/search?q=workshop">Made by hand</a>
+    <a href="/video/search?q=slow%20travel">The long way home</a>
+    <div class="sidebar-footer">Small stories.<br>Wide horizons.<br><span>FIELD FRAME / 2026</span></div>
+  </nav>
+  <main id="content" tabindex="-1">
+    <div id="watch-layout" hidden>
+      <section class="watch-main" aria-label="Watch film">
+        <div id="player-shell" class="player-shell">
+          <img id="poster" width="1600" height="900" alt="" fetchpriority="high">
+          <div class="poster-label"><span>FIELD NOTES</span><strong id="poster-title"></strong><small>AN ORIGINAL FIELDFRAME FILM</small></div>
+          <button id="play" class="play" aria-label="Play poster preview" aria-pressed="false">▷</button>
+          <div class="player-controls"><span id="play-state">Preview paused</span><span>00:00 <span id="duration"></span></span><button id="fullscreen" aria-label="Full screen">⛶</button></div>
+        </div>
+        <div id="watch-info"></div>
+        <section id="comments" aria-label="Comments"><h2>Conversation</h2><p class="muted">Gathering field notes…</p></section>
+      </section>
+      <aside class="related" aria-label="Related films"><div class="rail-heading"><h2>Keep wandering</h2><span>UP NEXT</span></div><div id="related-list"></div></aside>
+    </div>
+    <section id="search-page" hidden aria-label="Search results"></section>
+    <p id="error" role="alert" hidden></p>
+  </main>
+</body>
+</html>

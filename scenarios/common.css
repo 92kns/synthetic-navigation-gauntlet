@@ -1,0 +1,38 @@
+.gt {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font: 12px/1.3 Helvetica, Arial, sans-serif;
+}
+.gt th {
+  text-align: left;
+  padding: 4px 6px;
+  background: #33373d;
+  color: #fff;
+}
+.gt td {
+  padding: 3px 6px;
+}
+.gt tr:nth-child(even) td {
+  filter: saturate(1.4);
+}
+.gc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px;
+  color: inherit;
+  text-decoration: none;
+  font: 13px/1.3 Helvetica, Arial, sans-serif;
+}
+.gc img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: #ddd;
+}
+.gc small {
+  color: #666;
+  font-size: 11px;
+}
